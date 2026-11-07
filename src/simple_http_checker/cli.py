@@ -18,13 +18,18 @@ logger = logging.getLogger(__name__)
     show_default=True,
     help="Timeout for each request, in seconds.",
 )
-@click.option("--verbose", "-v", is_flag=True, help="Show detailed debug logs.")
-def main(urls : Collection[str], timeout : int, verbose : bool):
+@click.option(
+    "--verbose",
+    "-v",
+    is_flag=True,
+    help="Show detailed debug logs.",
+)
+def main(urls: Collection[str], timeout: int, verbose: bool):
     """Check the status of one or more URLs."""
     logging.basicConfig(
         level=logging.DEBUG if verbose else logging.WARNING,
         format="%(levelname)s:%(name)s:%(message)s",
-        force = True
+        force=True,
     )
     if verbose:
         logging.getLogger().setLevel(logging.DEBUG)
@@ -43,9 +48,13 @@ def main(urls : Collection[str], timeout : int, verbose : bool):
         ok = status.isdigit()
         if not ok:
             failed += 1
-        click.secho(f"{url:<40} {status}", fg="green" if ok else "red")
+        click.secho(
+            f"{url:<40} {status}", fg="green" if ok else "red"
+        )
 
-    click.echo(f"\n{len(results) - failed}/{len(results)} URLs OK")
+    click.echo(
+        f"\n{len(results) - failed}/{len(results)} URLs OK"
+    )
 
     if failed:
         sys.exit(1)
