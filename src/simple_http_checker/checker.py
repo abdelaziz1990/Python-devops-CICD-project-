@@ -37,7 +37,7 @@ def check_urls(urls: list[str], timeout: int = 5) -> dict[str, str]:
             logger.warning(f"Connection error occurred for URL: {url}")
         except requests.exceptions.RequestException as e:
             status = f"ERROR - {type(e).__name__}"
-            logger.error(f"Request exception for URL: {url} - {e}", exc_info=True)
+            logger.exception(f"Request exception for URL: {url}")
 
         results[url] = status
         logger.debug(f"Checked: {url:<40} Status: {status}")

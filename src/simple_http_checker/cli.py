@@ -1,5 +1,6 @@
 import logging
 import sys
+from _collections_abc import Collection
 
 import click
 
@@ -18,11 +19,12 @@ logger = logging.getLogger(__name__)
     help="Timeout for each request, in seconds.",
 )
 @click.option("--verbose", "-v", is_flag=True, help="Show detailed debug logs.")
-def main(urls, timeout, verbose):
+def main(urls : Collection[str], timeout : int, verbose : bool):
     """Check the status of one or more URLs."""
     logging.basicConfig(
         level=logging.DEBUG if verbose else logging.WARNING,
         format="%(levelname)s:%(name)s:%(message)s",
+        force = True
     )
     if verbose:
         logging.getLogger().setLevel(logging.DEBUG)
