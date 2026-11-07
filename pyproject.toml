@@ -16,6 +16,9 @@ dependencies = [
 dev = [
   "ruff",
   "black",
+  "mypy",
+  "bandit",
+  "types-requests"
 ]
 
 [project.scripts]
@@ -25,4 +28,10 @@ check-urls = "simple_http_checker.cli:main"
 line-length = 65
 [tool.black]
 line-length = 65
+[tool.mypy]
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
 
+[tool.bandit]
+exclude_dirs = [".venv", "__pycache__", "build", "dist"]
