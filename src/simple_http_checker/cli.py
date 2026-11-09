@@ -9,7 +9,7 @@ from simple_http_checker.checker import check_urls
 logger = logging.getLogger(__name__)
 
 
-@click.command()
+@click.command(name="check_urls", help="Check the status of one or more URLs.")
 @click.argument("urls", nargs=-1, required=True)
 @click.option(
     "--timeout",
