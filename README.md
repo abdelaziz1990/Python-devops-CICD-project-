@@ -15,4 +15,4 @@ This repo contains  the code for the CI/CD sections of my Python for Devops cour
 
 [] Build our Python project
 
-[] Publish the project to both TestPyPi and Pypi when a new tag is pushed 
+[] Publish the project to both TestPyPi and Pypi when a new release is published
