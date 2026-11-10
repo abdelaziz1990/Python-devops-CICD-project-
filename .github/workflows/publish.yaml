@@ -41,7 +41,6 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment:
-    environment:
       name: testpypi
       url: https://test.pypi.org/p/simple-http-checker/
     permissions:
