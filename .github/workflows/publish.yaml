@@ -22,7 +22,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install  ".[dev ]" pytest
+          python -m pip install --upgrade build
+          python -m pip install  ".[dev ]" pytest
       - name: Build package
         run: |
           python -m build
