@@ -40,7 +40,10 @@ jobs:
   publish-testpypi:
     needs: build
     runs-on: ubuntu-latest
-    environment: development
+    environment:
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/p/simple-http-checker/
     permissions:
       contents: read
       id-token: write
