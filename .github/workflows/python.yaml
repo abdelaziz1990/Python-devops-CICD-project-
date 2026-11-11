@@ -1,9 +1,9 @@
 name: CI/CD for simple-http-checker
 
 on:
-  push:
-    branches: [ 'main' ]
   workflow_dispatch:
+  release:
+    types: [published]
 
 jobs:
   lint-static-checks:

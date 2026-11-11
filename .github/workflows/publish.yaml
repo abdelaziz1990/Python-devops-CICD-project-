@@ -58,7 +58,7 @@ jobs:
           skip-existing: true
           verbose: true
   publish-pypi:
-    needs: publish-testpypi
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: production
@@ -69,7 +69,7 @@ jobs:
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
-          name: simple-http-checker-${{ github.sha}}
+          name: simple-http-checker-${{ github.sha}}   
           path: dist/
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
